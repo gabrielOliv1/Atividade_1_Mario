@@ -371,6 +371,45 @@ body.menu-expanded button path {
   margin: 0;
 }
 
+/* SERVICES =========================================================*/
+#services header h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background-color: white;
+
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin: 1.6rem 0;
+}
+
+/* ABOUT =========================================================*/
+#about {
+  text-align: left;
+  background: var(--brand-beige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
+
 /* RESPONSIVO =========================================================*/
 @media (min-width: 1024px) {
   /* GERAL =========================================================*/
@@ -571,5 +610,42 @@ body.menu-expanded button path {
 
   #home img {
     width: 42rem;
+  }
+
+  /* SERVICES =========================================================*/
+  #services h2 {
+    width: 49rem;
+    margin-inline: auto;
+  }
+
+  #services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
+
+  /* ABOUT =========================================================*/
+  #about .wrapper {
+    display: grid;
+    grid-template-columns: 48rem 1fr;
+    grid-template-areas: "B A";
+    column-gap: 6.7rem;
+  }
+
+  #about .col-a {
+    align-self: center;
+  }
+
+  #about .col-b {
+    align-self: center;
+    justify-self: center;
+  }
+
+  #about .content p {
+    margin-bottom: 0;
   }
 }
