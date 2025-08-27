@@ -1,41 +1,42 @@
-window.addEventListener("scroll", onScroll);
+window.addEventListener('scroll', onScroll)
 
-onScroll();
+onScroll()
 
 function onScroll() {
-  showNavOnScroll();
+  showNavOnScroll()
+  showBackToTopOnScroll()
 
-  activateMenuAtCurrentSection(home);
-  activateMenuAtCurrentSection(services);
-  activateMenuAtCurrentSection(about);
-  activateMenuAtCurrentSection(contact);
-}
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
+};
 
 function activateMenuAtCurrentSection(section) {
-  const targetLine = scrollY + innerHeight / 2;
+  const targetLine = scrollY + innerHeight / 2
 
   //verificar se a seção passou da linha
-  const sectionTop = section.offsetTop;
-  const sectionHeight = section.offsetHeight;
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
 
-  const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
+  const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
 
   //verificar se a base esta abaixo da linha alvo
-  const sectionEndsAt = sectionTop + sectionHeight;
+  const sectionEndsAt = sectionTop + sectionHeight
 
-  const sectionEndPassedTargetLine = sectionEndsAt <= targetLine;
+  const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
 
   // Limites da seção
-  const sectionBoundaries =
-    sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine;
+  const sectionBoundaries = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine
 
-  const sectionId = section.getAttribute("id");
-  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`);
+  const sectionId = section.getAttribute('id')
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
 
-  menuElement.classList.remove("active");
+  menuElement.classList.remove('active')
   if (sectionBoundaries) {
-    menuElement.classList.add("active");
+    menuElement.classList.add('active')
   }
+
 }
 
 function showNavOnScroll() {
@@ -46,15 +47,31 @@ function showNavOnScroll() {
   } else {
     navigation.classList.remove("scroll");
   }
-}
+};
+
+function showBackToTopOnScroll () {
+  const backToTopButton = document.querySelector("#backToTopButton");
+
+  if (scrollY > 800) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
+
+  /* if (scrollY > 4440) {
+    backToTopButton.classList.add("change");
+  } else {
+    backToTopButton.classList.remove("change");
+  } */
+};
 
 function openMenu() {
   document.body.classList.add("menu-expanded");
-}
+};
 
 function closeMenu() {
   document.body.classList.remove("menu-expanded");
-}
+};
 
 ScrollReveal({
   origin: "top",
